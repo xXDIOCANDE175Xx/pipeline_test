@@ -14,4 +14,5 @@ jobs:
         with:
           node-version: '14'
       - run: npm install -g csv-parser
+      - run: echo "${{ github.event_name  }}"
       - run: echo "$(if [ github.event_name == 'release' && github.event.action == 'created' ]; then echo SUKA; else echo SUCA; fi)"
