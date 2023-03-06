@@ -3,6 +3,8 @@ run-name: ${{ github.actor }} is learning GitHub Actions
 on:
   push:
     tags: ["*"]
+  release:
+    types: [created]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
@@ -12,4 +14,4 @@ jobs:
         with:
           node-version: '14'
       - run: npm install -g csv-parser
-      - run: echo "${{ github.event }}"
+      - run: echo "$(if [ github.event_name == 'release' && github.event.action == 'created' ]; then echo SUKA; else echo SUCA; fi)"
