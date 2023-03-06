@@ -12,4 +12,4 @@ jobs:
         with:
           node-version: '14'
       - run: npm install -g csv-parser
-      - run: echo "${{ github.event_name }}"
+      - run: echo "${{ github.event }}"
